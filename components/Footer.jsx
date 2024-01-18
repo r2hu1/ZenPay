@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { ModeToggle } from "./ModeToggle";
+import { Computer } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -8,7 +9,7 @@ export default function Footer() {
             <div>
                 <div className="flex items-center justify-between">
                     <Logo />
-                    <ModeToggle />
+                    <span className="bg-background flex items-center justify-center gap-1 text-xs rounded-full py-1 px-2 border">Normal<Computer className="h-3 w-3" /></span>
                 </div>
                 <p className="text-xs md:text-sm">Built using nextjs by <Link href="https://github.com/r2hu1" className="hover:text-primary hover:underline">r2hu1</Link><span className="text-primary">.</span></p>
             </div>
