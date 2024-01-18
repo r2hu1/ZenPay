@@ -1,0 +1,22 @@
+import Link from "next/link";
+import Logo from "./Logo";
+import { ModeToggle } from "./ModeToggle";
+
+export default function Footer() {
+    return (
+        <footer className="px-6 md:px-20 lg:px-32 py-20 grid gap-3">
+            <div>
+                <div className="flex items-center justify-between">
+                    <Logo />
+                    <ModeToggle />
+                </div>
+                <p className="text-xs md:text-sm">Built using nextjs by <Link href="https://github.com/r2hu1" className="hover:text-primary hover:underline">r2hu1</Link><span className="text-primary">.</span></p>
+            </div>
+            <ul className="grid">
+                <li className="-mb-1"><Link className="text-sm hover:underline hover:text-primary" href="https://rahul.eu.org">Hire Me</Link></li>
+                <li><Link className="text-sm hover:underline hover:text-primary" href="/">Fix this page</Link></li>
+            </ul>
+            <p className="text-xs">©{new Date().getFullYear()} All rights reserved<span className="text-primary">.</span></p>
+        </footer>
+    )
+}
