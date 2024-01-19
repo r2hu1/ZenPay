@@ -5,11 +5,11 @@ import { Computer } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="px-6 md:px-20 lg:px-32 py-20 grid gap-3">
+        <footer className="px-6 md:px-20 lg:px-32 py-20 -mb-10 grid gap-3">
             <div>
                 <div className="flex items-center justify-between">
                     <Logo />
-                    <span className="bg-background flex items-center justify-center gap-1 text-xs rounded-full py-1 px-2 border">Normal<Computer className="h-3 w-3" /></span>
+                    <span title="All System Normal" className="bg-background hover:bg-secondary transition select-none cursor-pointer flex items-center justify-center gap-1 text-xs rounded-full py-1 px-2 border">Normal<Computer className="h-3 w-3" /></span>
                 </div>
                 <p className="text-xs md:text-sm">Built using nextjs by <Link href="https://github.com/r2hu1" className="hover:text-primary hover:underline">r2hu1</Link><span className="text-primary">.</span></p>
             </div>

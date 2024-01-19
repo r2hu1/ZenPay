@@ -1,27 +1,17 @@
-import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
-import Link from "next/link";
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import Notif from '@/components/Notif'
+import Hero from '@/components/Hero'
 
-export default function Pape() {
-  return (
-    <main>
-      <div className="py-20 px-6 md:px-20 lg:px-32 grid place-items-center">
 
-        <div className="max-w-[600px] mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-center">
-            An frictional currency povered and built by javascript<span className="text-primary">.</span>
-          </h1>
-          <p className="text-xs md:text-sm mt-1 text-center">
-            this is my imagination of a currency that didn't exists in this universe, pay/get/exchange/buy/sell using user dashboard.
-          </p>
-
-          <div className="mt-6 flex items-center justify-center gap-2">
-            <Button variant="secondary" asChild><Link className="flex items-center justify-center gap-2" href="/">Source<Github className="h-4 w-4"/></Link></Button>
-            <Button asChild><Link href="/">Get Started</Link></Button>
-          </div>
+export default async function Page() {
+    return (
+        <div>
+            <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"><div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary opacity-15 blur-[100px]"></div></div>
+            <Notif />
+            <Header />
+            <Hero />
+            <Footer />
         </div>
-
-      </div>
-    </main>
-  )
+    )
 }
