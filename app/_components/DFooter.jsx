@@ -2,7 +2,7 @@ import Logo from "@/components/Logo";
 
 export default function DFooter() {
     return (
-        <footer className="py-20 px-6 md:px-20 lg:px-32 -mb-10 grid place-content-center text-center">
+        <footer className="mt-20 mb-10 px-6 md:px-20 lg:px-32 grid place-content-center text-center">
             <Logo/>
             <p className="text-xs mb-4">Built using nextjs by <a className="hover:text-primary hover:underline" href="https://rahul.eu.org">r2hu1</a></p>
             {/* <ul className="list-none grid">

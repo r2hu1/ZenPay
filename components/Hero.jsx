@@ -9,7 +9,7 @@ export default function Hero() {
 
             <div className="max-w-[600px] mx-auto">
                 <h1 className="text-3xl md:text-4xl font-bold text-center">
-                    An frictional currency povered and built by javascript<span className="text-primary">.</span>
+                    An frictional currency powered and built by javascript<span className="text-primary">.</span>
                 </h1>
                 <p className="text-xs md:text-sm mt-1 text-center">
                     this is my imagination of a currency that didn't exists in this universe, pay/get/exchange/buy/sell using user dashboard.

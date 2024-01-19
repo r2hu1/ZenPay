@@ -10,7 +10,10 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: 'ZenPay',
+  title: {
+    default: 'ZenPay',
+    template: '%s | ZenPay',
+  },
   description: 'An frictional currency povered and built by javascript.',
 }
 
@@ -21,7 +24,7 @@ export default function RootLayout({ children }) {
         <body className={poppins.className}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
