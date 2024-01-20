@@ -17,7 +17,7 @@ export default async function Hero() {
                     this is my imagination of a currency that didn't exists in this universe, pay/get/exchange/buy/sell using user dashboard.
                 </p>
                 <div className="mt-6 flex items-center justify-center gap-2">
-                    <Button variant="secondary" asChild><Link className="flex items-center justify-center gap-2" href="/">Source<Github className="h-4 w-4 hidden" /></Link></Button>
+                    <Button variant="secondary" asChild><Link className="flex items-center justify-center gap-2" href="https://github.com/r2hu1/zenpay">Source<Github className="h-4 w-4 hidden" /></Link></Button>
                     <Button asChild><Link href={!user ? "/sign-up" : "/dashboard"}>Get Started</Link></Button>
                 </div>
             </div>
