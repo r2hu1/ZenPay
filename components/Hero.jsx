@@ -16,7 +16,7 @@ export default function Hero() {
                 </p>
                 <div className="mt-6 flex items-center justify-center gap-2">
                     <Button variant="secondary" asChild><Link className="flex items-center justify-center gap-2" href="/">Source<Github className="h-4 w-4 hidden" /></Link></Button>
-                    <Button asChild><Link href="/sign-up">Get Started</Link></Button>
+                    <Button asChild><Link href={!user ? "/sign-up" : "/dashboard"}>Get Started</Link></Button>
                 </div>
             </div>
 
