@@ -44,6 +44,10 @@ Follow these steps to set up and run ZenPay on your local machine:
 
    Open your browser and navigate to `http://localhost:3000` to view ZenPay in action.
 
+## Environment Variables
+Don't forgot to add .env for instance check .env.example
+
+
 ## Contributing
 
 We welcome contributions! If you'd like to contribute to ZenPay, please follow our [contribution guidelines](CONTRIBUTING.md).
