@@ -2,8 +2,10 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { Github } from "lucide-react";
 import SList from "./SList";
+import { currentUser } from "@clerk/nextjs";
 
-export default function Hero() {
+export default async function Hero() {
+    const user = await currentUser();
     return (
         <div className="py-20 px-6 md:px-20 lg:px-32 grid place-items-center">
 
