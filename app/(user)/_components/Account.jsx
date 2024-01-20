@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { CreateAccount } from "@/lib/create";
 import Trans from "./Trans";
 import Link from "next/link";
-import RequestBtn from "./RequestBtn";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import ActionBtn from "./ActionBtn";
+import { ArrowUp } from "lucide-react";
 
 export default async function Account() {
     const { balance, zpi } = await CreateAccount();
@@ -15,8 +15,8 @@ export default async function Account() {
                 <p className="text-xs -mt-4 opacity-75">Total Balance</p>
             </div>
             <div className="mt-5 flex items-center justify-center gap-2">
-                <Button asChild><Link href="/dashboard/pay" className="flex items-center justify-center">Pay<ArrowUp className="h-4 w-4"/></Link></Button>
-                <RequestBtn zpiid={zpi} />
+                <Button asChild><Link href="/dashboard/pay" className="flex items-center justify-center">Pay<ArrowUp className="h-4 w-4" /></Link></Button>
+                <ActionBtn zpiid={zpi} />
             </div>
             <Trans />
         </div>

@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
               zIndex={1600}
               showAtBottom={false}
             />
-            <Toaster position='top-left'/>
+            <Toaster position='bottom-left' duration={2000}/>
             {children}
           </ThemeProvider>
         </body>
