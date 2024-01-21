@@ -1,6 +1,9 @@
 import { getFromHist, getHist } from "@/lib/create"
 import { currentUser } from "@clerk/nextjs";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import { deleteTrans } from "@/lib/delete";
+import DeleteTrans from "./DeleteTrans";
 
 
 export default async function Trans() {
@@ -26,6 +29,7 @@ export default async function Trans() {
                                 ) : (
                                     <h1 className="text-md">{item.amount}<span className="text-xs text-primary">Z</span> sent to <span className="text-sm">{item.to}</span></h1>
                                 )}
+                                <DeleteTrans id={JSON.parse(JSON.stringify(item._id))}/>
                             </div>
                         ))}
                         {fromTrans.length == 0 && (
@@ -45,6 +49,7 @@ export default async function Trans() {
                                 ) : (
                                     <h1 className="text-md">{item.amount}<span className="text-xs text-primary">Z</span> to {item.to}</h1>
                                 )}
+                                <DeleteTrans id={JSON.parse(JSON.stringify(item._id))}/>
                             </div>
                         ))}
                     </div>

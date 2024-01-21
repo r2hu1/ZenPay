@@ -20,7 +20,7 @@ import { useTheme } from "next-themes";
 export default function ActionBtn({ zpiid }) {
     const { resolvedTheme } = useTheme();
     const qrcodeRef = useRef(null);
-    const zpiQr = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${zpiid}${resolvedTheme=="dark" ? '&bgcolor=020817&color=f8fafc' : '&bgcolor=fff&color=000'}`;
+    const zpiQr = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://zenpay.vercel.app/dashboard/pay?zpiid=${zpiid}${resolvedTheme=="dark" ? '&bgcolor=020817&color=f8fafc' : '&bgcolor=fff&color=000'}`;
     const handleDownload = () => {
         toast.loading("downloading");
         domtoimage.toJpeg(qrcodeRef.current, { quality: 0.95 })
@@ -33,8 +33,9 @@ export default function ActionBtn({ zpiid }) {
             })
     };
 
-
-
+    const handleScan = () => {
+        
+    }
 
     return (
         <>
@@ -46,7 +47,7 @@ export default function ActionBtn({ zpiid }) {
                     <DialogHeader className="mt-7">
                         <DialogTitle className="text-xl md:text-xl sm:text-xl sm:text-center -mb-1 md:text-center">Scan And Pay</DialogTitle>
                         <DialogDescription className="py-5 grid gap-4">
-                            <p className="text-center text-xs -mt-6">Scan this QR code using zenpay app <br /> and send me zen coin</p>
+                            <p className="text-center text-xs -mt-6">Scan this QR code using any qr scanner <br /> and send me zen coin</p>
                             <Zpi zpi={zpiid} showshare={false} />
                             <img ref={qrcodeRef} src={zpiQr} alt="qrcode" className="mx-auto rounded-lg h-[250px] w-[250px] bg-secondary mt-2" />
                             <div className="flex gap-2 mt-4 -mb-5 items-center justify-center">
@@ -57,7 +58,7 @@ export default function ActionBtn({ zpiid }) {
                     </DialogHeader>
                 </DialogContent>
             </Dialog>
-            <Button size="icon" variant="secondary" onClick={() => { toast.error("coming soon") }}><ScanBarcodeIcon className="h-4 w-4" /></Button>
+            {/* <Button size="icon" variant="secondary" onClick={handleScan}><ScanBarcodeIcon className="h-4 w-4" /></Button> */}
             <Button variant="secondary" onClick={() => { navigator.share({ text: `Send me some zen coin on my zpi id: ${zpiid}`, title: "ZenPay", url: "https://zenpay.vercel.app" }); }} className="flex items-center justify-center gap-[2px]" size="icon"><Plus className="h-4 w-4" /></Button>
         </>
     )

@@ -8,11 +8,17 @@ import { ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useRouter, useSearchParams } from 'next/navigation';
+
 
 export default function PaymentForm() {
-    const [loading, setLoading] = useState(false);
-    const [zpi, setZpi] = useState("");
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const paramsZpiId = searchParams.get('zpiid');
     const [amount, setAmount] = useState("");
+
+    const [loading, setLoading] = useState(false);
+    const [zpi, setZpi] = useState(paramsZpiId);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,9 +30,9 @@ export default function PaymentForm() {
             const result = await makeTrans(zpi, amount);
             if (result.success) {
                 toast.success("payment successfull!");
-                setZpi("");
                 setAmount("");
                 setLoading(false);
+                router.refresh();
             }
             else {
                 toast.error(result.error);
