@@ -15,10 +15,12 @@ import domtoimage from 'dom-to-image';
 import { useRef } from 'react';
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { useTheme } from "next-themes";
 
 export default function ActionBtn({ zpiid }) {
+    const { resolvedTheme } = useTheme();
     const qrcodeRef = useRef(null);
-    const zpiQr = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${zpiid}`;
+    const zpiQr = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${zpiid}${resolvedTheme=="dark" ? '&bgcolor=020817&color=f8fafc' : '&bgcolor=fff&color=000'}`;
     const handleDownload = () => {
         toast.loading("downloading");
         domtoimage.toJpeg(qrcodeRef.current, { quality: 0.95 })
@@ -31,7 +33,7 @@ export default function ActionBtn({ zpiid }) {
             })
     };
 
-    
+
 
 
     return (
@@ -46,7 +48,7 @@ export default function ActionBtn({ zpiid }) {
                         <DialogDescription className="py-5 grid gap-4">
                             <p className="text-center text-xs -mt-6">Scan this QR code using zenpay app <br /> and send me zen coin</p>
                             <Zpi zpi={zpiid} showshare={false} />
-                            <img ref={qrcodeRef} src={zpiQr} alt="qrcode" className="mx-auto rounded-md h-[250px] w-[250px] bg-secondary" />
+                            <img ref={qrcodeRef} src={zpiQr} alt="qrcode" className="mx-auto rounded-lg h-[250px] w-[250px] bg-secondary" />
                             <div className="flex gap-2 mt-4">
                                 <Button className="w-full" onClick={() => { navigator.share({ title: "Scan and Pay", url: zpiQr, text: `Scan this QR code and send me zen coin!` }) }}>Share</Button>
                                 <Button className="w-full" onClick={handleDownload} variant="secondary">Save</Button>
