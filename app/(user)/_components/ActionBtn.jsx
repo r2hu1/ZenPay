@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Plus, ScanBarcodeIcon } from "lucide-react";
+import { ArrowDown, Plus, ScanBarcodeIcon, Share2 } from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -42,16 +42,16 @@ export default function ActionBtn({ zpiid }) {
                 <DialogTrigger asChild>
                     <Button className="flex items-center justify-center">Receive<ArrowDown className="h-4 w-4" /></Button>
                 </DialogTrigger>
-                <DialogContent className="rounded-md">
+                <DialogContent className="rounded-md max-w-sm">
                     <DialogHeader className="mt-7">
                         <DialogTitle className="text-xl md:text-xl sm:text-xl sm:text-center -mb-1 md:text-center">Scan And Pay</DialogTitle>
                         <DialogDescription className="py-5 grid gap-4">
                             <p className="text-center text-xs -mt-6">Scan this QR code using zenpay app <br /> and send me zen coin</p>
                             <Zpi zpi={zpiid} showshare={false} />
-                            <img ref={qrcodeRef} src={zpiQr} alt="qrcode" className="mx-auto rounded-lg h-[250px] w-[250px] bg-secondary" />
-                            <div className="flex gap-2 mt-4">
-                                <Button className="w-full" onClick={() => { navigator.share({ title: "Scan and Pay", url: zpiQr, text: `Scan this QR code and send me zen coin!` }) }}>Share</Button>
-                                <Button className="w-full" onClick={handleDownload} variant="secondary">Save</Button>
+                            <img ref={qrcodeRef} src={zpiQr} alt="qrcode" className="mx-auto rounded-lg h-[250px] w-[250px] bg-secondary mt-2" />
+                            <div className="flex gap-2 mt-4 -mb-5 items-center justify-center">
+                                <Button className="w-full max-w-sm" onClick={handleDownload}>Save</Button>
+                                <Button size="icon" onClick={() => { navigator.share({ title: "Scan and Pay", url: "https://zenpay.vercel.app", text: `Pay with my zpi: ${zpiid}` }) }} variant="secondary"><Share2 className="h-4 w-4" /></Button>
                             </div>
                         </DialogDescription>
                     </DialogHeader>
