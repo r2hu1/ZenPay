@@ -14,6 +14,7 @@ import { toast } from "sonner";
 import domtoimage from 'dom-to-image';
 import { useRef } from 'react';
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
 
 export default function ActionBtn({ zpiid }) {
     const qrcodeRef = useRef(null);
@@ -30,10 +31,8 @@ export default function ActionBtn({ zpiid }) {
             })
     };
 
-    const [scanResult, setScanResult] = useState("");
-    const handleScan = async(e) => {
-        toast.error("scanning not supported yet");
-    }
+    
+
 
     return (
         <>
@@ -56,7 +55,7 @@ export default function ActionBtn({ zpiid }) {
                     </DialogHeader>
                 </DialogContent>
             </Dialog>
-            <Button size="icon" onClick={handleScan} variant="secondary"><ScanBarcodeIcon className="h-4 w-4" /></Button>
+            <Button size="icon" variant="secondary" onClick={() => { toast.error("coming soon") }}><ScanBarcodeIcon className="h-4 w-4" /></Button>
             <Button variant="secondary" onClick={() => { navigator.share({ text: `Send me some zen coin on my zpi id: ${zpiid}`, title: "ZenPay", url: "https://zenpay.vercel.app" }); }} className="flex items-center justify-center gap-[2px]" size="icon"><Plus className="h-4 w-4" /></Button>
         </>
     )
